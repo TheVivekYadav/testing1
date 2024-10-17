@@ -8,10 +8,12 @@ app.get('/',(req, res) => {
 	res.send("Hello World");
 });
 
-app.get('/greet', (req, res) => {
-	res.send("Hello Developers");
+app.get('/greet/:name', (req, res) => {
+	const userName = req.params.name;
+	res.send(`Hello ${userName}`);
 });
 
+
 app.listen(port, () => {
-	console.log(`Server is running at port: {$port}`);
+	console.log(`Server is running at port: ${port}`);
 });
